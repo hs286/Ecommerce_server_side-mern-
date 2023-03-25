@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const productModel=new mongoose.Schema({
+const serviceModel=new mongoose.Schema({
     name:{
         type:String,
         require:true,
@@ -9,28 +9,29 @@ const productModel=new mongoose.Schema({
         type:String,
         require:true,
     },
-    feature:{
-        type:String,
-        require:true,
-    },
     price:{
-        type:String,
-        require:true
+        type:mongoose.Types.Decimal128,
+        require:true,
     },
-    discount:{
+    category:{
         type:String,
         require:true,
     },
-    image:[{
+    area:{
+        type:mongoose.Types.Decimal128,
+        require:true,
+    },
+    unit:{
+        type:String,
+        require:true,
+    },
+    image:{
         _id: false,
         type:String,
         required:true,
-    }],
-    adminId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Admins",
     },
+
 },{versionKey:false});
 
-var Product=mongoose.model("Products",productModel);
-export default Product;
+var Service=mongoose.model("services",serviceModel);
+export default Service;
